@@ -1,0 +1,10 @@
+/* Thanks to Gabriele Petrioli. https://stackoverflow.com/a/28701009 */
+.circular-image {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+  }

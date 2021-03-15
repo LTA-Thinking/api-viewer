@@ -1,0 +1,79 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://github.com/LTA-Thinking/api-viewer/reference/config.schema.json?version=1.0",
+    "title": "API Display Config",
+    "description": "A configuration for how to display the results of API calls.",
+    "type": "object",
+    "properties": {
+        "display": {
+            "description": "Configuration for how to display the API results. If not provided apis will be displayed vertically in the order given.",
+            "$ref": "#/$defs/display"
+        },
+        "apis": {
+            "type": "array",
+            "description": "A list of api calls to display",
+            "items": {
+                "$ref": "#/$defs/api"
+            }
+        }
+    },
+    "required": [
+        "apis"
+    ],
+    "$defs": {
+        "display": {
+            "description": "WIP",
+            "type": "object",
+            "properties": {}
+        },
+        "api": {
+            "description": "The description of an api call and how to display it.",
+            "type": "object",
+            "properties": {
+                "title": {
+                    "description": "The title to show above the results. If not provided the id will be used.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The identifier for the api call. Must be unique. Used to reference the call from a display configuration.",
+                    "type": "string"
+                },
+                "uri": {
+                    "description": "The api uri to call. Must include any query parameters required. The returned value must be an array.",
+                    "type": "string"
+                },
+                "columns": {
+                    "description": "The columns to use for showing data from the api call.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "path": {
+                                "type": "string"
+                            },
+                            "image": {
+                                "type": "string"
+                            },
+                            "link": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "path"
+                        ]
+                    },
+                    "minItems": 1
+                }
+            },
+            "required": [
+                "id",
+                "uri",
+                "columns"
+            ]
+        }
+    }
+}
