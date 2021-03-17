@@ -49,15 +49,19 @@
                         "type": "object",
                         "properties": {
                             "name": {
+                                "description": "The name of the column, displayed at the top.",
                                 "type": "string"
                             },
                             "path": {
+                                "description": "The JSON path to the data to be displayed.",
                                 "type": "string"
                             },
                             "image": {
+                                "description": "The JSON path to an image url to be displayed with the data.",
                                 "type": "string"
                             },
                             "link": {
+                                "description": "The JSON path to a url the data should link to.",
                                 "type": "string"
                             }
                         },
