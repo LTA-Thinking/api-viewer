@@ -18,9 +18,9 @@ function getProperty(object, path) {
 
 function addSection(configSection) {
     makeApiCall(configSection.uri, response => {
-        const body = $("body");
+        const body = $("#results-container");
         const title = configSection.hasOwnProperty("title") ? configSection.title : configSection.id;
-        let newCard = `<div class="card"><div class="card-body"><h5 class="card-title">${title}</h5></div>`;
+        let newCard = `<div class="col me-auto ms-auto"><div class="card"><div class="card-body"><h5 class="card-title">${title}</h5></div>`;
 
         newCard += `<table class="table table-striped"><thead><tr>`;
         configSection.columns.forEach(column => {
@@ -55,7 +55,7 @@ function addSection(configSection) {
             });
             newCard += `</tr>`;
         });
-        newCard += `</tbody></table>`
+        newCard += `</tbody></table></div></div>`
         body.append(newCard);
     });
 }
